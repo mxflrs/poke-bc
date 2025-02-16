@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:test1/theme/app_colors.dart';
+import 'package:test1/theme/text_styles.dart';
+import 'package:test1/widgets/search_bar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -25,6 +27,27 @@ class HomeScreen extends StatelessWidget {
             ),
           ],
         ),
+      ),
+
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 30),
+            child: RichText(
+              text: TextSpan(
+                children: [
+                  TextSpan(text: "¡Hola, ", style: AppTextStyles.headlineSmall),
+                  TextSpan(
+                    text: "bienvenido!",
+                    style: AppTextStyles.headlineSmall,
+                  ),
+                ],
+              ),
+            ),
+          ),
+          CustomSearchBar(),
+        ],
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test1/screens/home_screen.dart';
+import 'package:test1/theme/text_styles.dart';
 
 void main() {
   runApp(const MainApp());
@@ -12,26 +13,19 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        textTheme: TextTheme(
+          headlineLarge: AppTextStyles.headlineLarge,
+          headlineMedium: AppTextStyles.headlineMedium,
+          headlineSmall: AppTextStyles.headlineSmall,
+          bodyLarge: AppTextStyles.bodyLarge,
+          bodyMedium: AppTextStyles.bodyMedium,
+          bodySmall: AppTextStyles.bodySmall,
+          labelLarge: AppTextStyles.buttonText,
+        ),
+      ),
       home: const HomeScreen(),
       routes: {'/home': (context) => const HomeScreen()},
     );
   }
 }
-
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return ChangeNotifierProvider(
-//       create: (_) => PokemonProvider(),
-//       child: MaterialApp(
-//         title: 'Pokédex',
-//         theme: ThemeData(
-//           useMaterial3: true,
-//           colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
-//         ),
-//         home: const HomeScreen(),
-//       ),
-//     );
-//   }
-// }
-
