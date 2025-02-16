@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:test1/theme/app_colors.dart';
-import 'package:test1/theme/text_styles.dart';
 import 'package:test1/widgets/search_bar.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -33,19 +32,31 @@ class HomeScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 30),
+            padding: const EdgeInsets.only(left: 25, right: 25, top: 30, bottom: 0),
             child: RichText(
               text: TextSpan(
                 children: [
-                  TextSpan(text: "¡Hola, ", style: AppTextStyles.headlineSmall),
+                  TextSpan(
+                    text: "¡Hola, ",
+                    style: GoogleFonts.montserrat(
+                      fontWeight: FontWeight.w400,
+                      color: AppColors.black,
+                      fontSize: 20
+                    )
+                  ),
                   TextSpan(
                     text: "bienvenido!",
-                    style: AppTextStyles.headlineSmall,
+                    style: GoogleFonts.montserrat(
+                      fontWeight: FontWeight.w700,
+                      color: AppColors.black,
+                      fontSize: 20
+                    )
                   ),
                 ],
               ),
             ),
           ),
+          SizedBox(height: 16),
           CustomSearchBar(),
         ],
       ),
