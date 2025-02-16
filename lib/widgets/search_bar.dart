@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:test1/providers/pokemon_provider.dart';
 import 'package:test1/theme/app_colors.dart';
 
 class CustomSearchBar extends StatelessWidget {
@@ -23,6 +25,9 @@ class CustomSearchBar extends StatelessWidget {
           ),
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(32)),
         ),
+        onChanged: (query) {
+          context.read<PokemonProvider>().searchPokemon(query);
+        },
       ),
     );
   }
