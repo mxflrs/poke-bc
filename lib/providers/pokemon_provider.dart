@@ -3,11 +3,14 @@ import '../models/pokemon.dart';
 import '../services/pokemon_service.dart';
 
 class PokemonProvider extends ChangeNotifier {
+  bool _isSearchActive = false;
   final PokemonService _service = PokemonService();
   List<Pokemon> _pokemonList = [];
   List<Pokemon> _filteredList = [];
   bool _isLoading = false;
   String _error = '';
+
+  bool get isSearchActive => _isSearchActive;
 
   List<Pokemon> get pokemonList =>
       _filteredList.isEmpty ? _pokemonList : _filteredList;
@@ -31,6 +34,7 @@ class PokemonProvider extends ChangeNotifier {
   }
 
   void searchPokemon(String query) {
+    _isSearchActive = query.isNotEmpty; 
     if (query.isEmpty) {
       _filteredList = [];
     } else {

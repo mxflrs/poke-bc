@@ -24,6 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final isSearching = context.watch<PokemonProvider>().isSearchActive;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -31,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Row(
           children: [
             Image.asset('assets/images/pokeicon.png', height: 46),
-            SizedBox(width: 16),
+            const SizedBox(width: 16),
             Text(
               'Pokédex',
               style: GoogleFonts.montserrat(
@@ -43,7 +44,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -77,9 +77,22 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
-          SizedBox(height: 16),
-          CustomSearchBar(),
-          SizedBox(),
+          const SizedBox(height: 16),
+          const CustomSearchBar(),
+          const SizedBox(),
+          if (isSearching)
+            Padding(
+              padding: const EdgeInsets.only(left: 32, right: 32, bottom: 0, top: 12),
+              child: Text(
+                'Resultado de búsqueda',
+                style: GoogleFonts.montserrat(
+                  color: AppColors.off,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+          const SizedBox(height: 8),
           Expanded(child: PokemonGrid()),
         ],
       ),
