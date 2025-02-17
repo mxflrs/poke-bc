@@ -3,26 +3,52 @@ class Pokemon {
   final String name;
   final String imageUrl;
   final List<String> types;
+  final double height;
+  final double weight;
+  final String description;
+  final int hp;
+  final int attack;
+  final int defense;
+  final int specialDefense;
+  final int speed;
 
   Pokemon({
     required this.id,
     required this.name,
     required this.imageUrl,
     required this.types,
+    required this.height,
+    required this.weight,
+    required this.description,
+    required this.hp,
+    required this.attack,
+    required this.defense,
+    required this.specialDefense,
+    required this.speed,
   });
 
   factory Pokemon.fromJson(Map<String, dynamic> json) {
     try {
-      // Safely navigate through the nested JSON structure
       final sprites = json['sprites'] as Map<String, dynamic>;
       final other = sprites['other'] as Map<String, dynamic>?;
       final home = other?['home'] as Map<String, dynamic>?;
 
-      // Provide a fallback URL if the preferred image is null
       String imageUrl =
-          home?['front_default'] ?? // First try home
-          sprites['front_default'] ?? // Then try regular sprite
-          ''; // Empty string as last resort
+          home?['front_default'] ??
+          sprites['front_default'] ??
+          '';
+
+      final stats = json['stats'] as List;
+      final hp = stats[0]['base_stat'] as int;
+      final attack = stats[1]['base_stat'] as int;
+      final defense = stats[2]['base_stat'] as int;
+      final specialDefense = stats[3]['base_stat'] as int;
+      final speed = stats[4]['base_stat'] as int;
+
+      final height = (json['height'] as int) / 10.0;
+      final weight = (json['weight'] as int) / 10.0;
+
+      String description = 'No description available'; // Placeholder
 
       return Pokemon(
         id: json['id'] as int,
@@ -32,6 +58,14 @@ class Pokemon {
             (json['types'] as List)
                 .map((type) => (type['type']['name'] as String))
                 .toList(),
+        height: height,
+        weight: weight,
+        description: description,
+        hp: hp,
+        attack: attack,
+        defense: defense,
+        specialDefense: specialDefense,
+        speed: speed,
       );
     } catch (e) {
       rethrow;
