@@ -48,7 +48,7 @@ class Pokemon {
       final height = (json['height'] as int) / 10.0;
       final weight = (json['weight'] as int) / 10.0;
 
-      String description = 'No description available'; // Placeholder
+      String description = 'No description available';
 
       return Pokemon(
         id: json['id'] as int,

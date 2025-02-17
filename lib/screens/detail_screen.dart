@@ -133,7 +133,10 @@ class DetailScreen extends StatelessWidget {
 
           SizedBox(height: 25),
 
-          PokemonStats(pokemon: pokemon),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 25),
+            child: PokemonStats(pokemon: pokemon),
+          ),
         ],
       ),
     );

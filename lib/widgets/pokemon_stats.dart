@@ -1,33 +1,46 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:test1/models/pokemon.dart';
+import 'package:test1/theme/app_colors.dart';
 import 'package:test1/theme/pokemon_colors.dart';
 
 class PokemonStats extends StatelessWidget {
   final Pokemon pokemon;
 
-  const PokemonStats({Key? key, required this.pokemon}) : super(key: key);
+  const PokemonStats({super.key, required this.pokemon});
 
   @override
   Widget build(BuildContext context) {
+    final statColor = PokemonColors.getTypeColor(pokemon.types[0], shade: 400);
     final statBackgroundColor = PokemonColors.getTypeColor(
       pokemon.types[0],
-      shade: 400,
+      shade: 200,
     );
-    final statColor = PokemonColors.getTypeColor(pokemon.types[0]);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8),
+          child: Text(
+            'Description: ${pokemon.description}',
+            textAlign: TextAlign.justify,
+            style: TextStyle(
+              fontSize: 12,
+              leadingDistribution: TextLeadingDistribution.even,
+            ),
+          ),
+        ),
+        const SizedBox(height: 16),
         Text(
-          'Description: ${pokemon.description}',
-          textAlign: TextAlign.justify,
-        ),
-        const SizedBox(height: 16),
-        const Text(
           'Estadísticas',
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          style: GoogleFonts.montserrat(
+            color: AppColors.navyBlue,
+            fontSize: 20,
+            fontWeight: FontWeight.w700,
+          ),
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 6),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -40,28 +53,28 @@ class PokemonStats extends StatelessWidget {
             ),
             _buildStatRow(
               context,
-              'Attack',
+              'Ataque',
               pokemon.attack,
               statBackgroundColor,
               statColor,
             ),
             _buildStatRow(
               context,
-              'Defense',
+              'Defensa',
               pokemon.defense,
               statBackgroundColor,
               statColor,
             ),
             _buildStatRow(
               context,
-              'Special Defense',
+              'Defensa Especial',
               pokemon.specialDefense,
               statBackgroundColor,
               statColor,
             ),
             _buildStatRow(
               context,
-              'Speed',
+              'Velocidad',
               pokemon.speed,
               statBackgroundColor,
               statColor,
@@ -80,13 +93,19 @@ class PokemonStats extends StatelessWidget {
     Color statColor,
   ) {
     double percentage = (value / 100).clamp(0.0, 1.0);
+    String formattedValue =
+        value == 100
+            ? '100'
+            : value < 10
+            ? '0$value'
+            : '$value';
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Row(
         children: [
           SizedBox(
-            width: 100,
+            width: 140,
             child: Text(
               label,
               style: const TextStyle(fontWeight: FontWeight.bold),
@@ -96,14 +115,14 @@ class PokemonStats extends StatelessWidget {
             child: Stack(
               children: [
                 Container(
-                  height: 12,
+                  height: 16,
                   decoration: BoxDecoration(
                     color: statBackgroundColor,
                     borderRadius: BorderRadius.circular(8),
                   ),
                 ),
                 Container(
-                  height: 12,
+                  height: 16,
                   width: MediaQuery.of(context).size.width * 0.4 * percentage,
                   decoration: BoxDecoration(
                     color: statColor,
@@ -114,7 +133,7 @@ class PokemonStats extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 8),
-          Text('$value'),
+          Text(formattedValue),
         ],
       ),
     );
