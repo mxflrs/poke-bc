@@ -97,15 +97,30 @@ class DetailScreen extends StatelessWidget {
               padding: EdgeInsets.all(16),
               color: Colors.white,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Row(
                     children: [
-                      Icon(Icons.height, color: Colors.black),
+                      Image.asset('assets/images/ruler-icon.png', height: 24),
                       SizedBox(width: 8),
-                      Text(
-                        'Height: ${pokemon.height} m',
-                        style: TextStyle(color: Colors.black),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            '${pokemon.height} m',
+                            style: GoogleFonts.montserrat(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                          Text(
+                            'Altura',
+                            style: GoogleFonts.montserrat(
+                              fontSize: 10,
+                              color: AppColors.brightBlue,
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
@@ -118,11 +133,26 @@ class DetailScreen extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Icon(Icons.fitness_center, color: Colors.black),
+                      Image.asset('assets/images/scale-icon.png', height: 24),
                       SizedBox(width: 8),
-                      Text(
-                        'Weight: ${pokemon.weight} kg',
-                        style: TextStyle(color: Colors.black),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            '${pokemon.weight} kg',
+                            style: GoogleFonts.montserrat(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                          Text(
+                            'Peso',
+                            style: GoogleFonts.montserrat(
+                              fontSize: 10,
+                              color: AppColors.brightBlue,
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
