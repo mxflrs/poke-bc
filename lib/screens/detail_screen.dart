@@ -4,6 +4,7 @@ import 'package:test1/models/pokemon.dart';
 import 'package:test1/theme/app_colors.dart';
 import 'package:test1/theme/pokemon_colors.dart';
 import 'package:test1/widgets/pokemon_chips.dart';
+import 'package:test1/widgets/pokemon_stats.dart';
 
 class DetailScreen extends StatelessWidget {
   final Pokemon pokemon;
@@ -80,7 +81,7 @@ class DetailScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(height: 2,),
+                      SizedBox(height: 2),
                       PokemonTypeChips(types: pokemon.types),
                     ],
                   ),
@@ -132,12 +133,7 @@ class DetailScreen extends StatelessWidget {
 
           SizedBox(height: 25),
 
-          Text('Description: ${pokemon.description}'),
-          Text('HP: ${pokemon.hp}'),
-          Text('Attack: ${pokemon.attack}'),
-          Text('Defense: ${pokemon.defense}'),
-          Text('Special Defense: ${pokemon.specialDefense}'),
-          Text('Speed: ${pokemon.speed}'),
+          PokemonStats(pokemon: pokemon),
         ],
       ),
     );

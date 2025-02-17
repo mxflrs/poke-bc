@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:test1/providers/pokemon_provider.dart';
-import 'package:test1/screens/detail_screen.dart';
 import 'package:test1/screens/home_screen.dart';
 import 'package:test1/theme/text_styles.dart';
 
