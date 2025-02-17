@@ -84,16 +84,3 @@ https://pokeapi.co/api/v2/pokemon/{id}/
 ```bash
    flutter build ios
 ```
-
-## 📄 Licencia
-
-Este proyecto está bajo la licencia MIT. ¡Siéntete libre de contribuir!
-
----
-
-Desarrollado con ❤️ usando Flutter.
-
-# poke-bc
-# poke-bc
-# poke-bc
-# poke-bc
