@@ -13,7 +13,7 @@ class DetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final primaryType = pokemon.types.isNotEmpty ? pokemon.types[0] : 'normal';
-    final typeColor = PokemonColors.getTypeColor(primaryType);
+    final typeColor = PokemonColors.getTypeColor(primaryType, shade: 400);
 
     return Scaffold(
       appBar: AppBar(
@@ -66,7 +66,7 @@ class DetailScreen extends StatelessWidget {
 
               if (pokemon.imageUrl.isNotEmpty)
                 Positioned(
-                  top: -200,
+                  top: -190,
                   left: 0,
                   right: 0,
                   child: Column(
@@ -80,6 +80,7 @@ class DetailScreen extends StatelessWidget {
                           ),
                         ),
                       ),
+                      SizedBox(height: 2,),
                       PokemonTypeChips(types: pokemon.types),
                     ],
                   ),

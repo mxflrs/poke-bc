@@ -11,21 +11,27 @@ class PokemonTypeChips extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children:
-          types
-              .map(
-                (type) => Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                  child: Chip(
-                    label: Text(
-                      '${typeEmojis[type] ?? ''} ${type.capitalize()}',
-                    ),
-                    backgroundColor: PokemonColors.getTypeColor(type),
-                    labelStyle: const TextStyle(color: Colors.white),
-                  ),
+          types.map((type) {
+            Color borderColor = PokemonColors.getTypeColor(type, shade: 600);
+
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 4),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  border: Border.all(color: borderColor, width: 1),
+                  borderRadius: BorderRadius.circular(50),
                 ),
-              )
-              .toList(),
+                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                child: Text(
+                  '${typeEmojis[type] ?? ''} ${type.capitalize()}',
+                  style: TextStyle(color: borderColor, fontSize: 10),
+                ),
+              ),
+            );
+          }).toList(),
     );
   }
 }

@@ -1,44 +1,68 @@
 import 'package:flutter/material.dart';
 
 class PokemonColors {
-  static Color getTypeColor(String type) {
+  static Color getTypeColor(String type, {int? shade}) {
     switch (type) {
       case 'fire':
-        return Colors.red;
+        return (shade != null ? Colors.red[shade] : Colors.red[600]) ??
+            Colors.red;
       case 'water':
-        return Colors.blue;
+        return (shade != null ? Colors.blue[shade] : Colors.blue[500]) ??
+            Colors.blue;
       case 'grass':
-        return Colors.green;
+        return (shade != null ? Colors.green[shade] : Colors.green[400]) ??
+            Colors.green;
       case 'electric':
-        return Colors.yellow;
+        return (shade != null ? Colors.yellow[shade] : Colors.yellow[700]) ??
+            Colors.yellow;
       case 'poison':
-        return Colors.purple;
+        return (shade != null ? Colors.purple[shade] : Colors.purple[300]) ??
+            Colors.purple;
       case 'flying':
-        return Colors.lightBlue;
+        return (shade != null ? Colors.blue[shade] : Colors.blue[200]) ??
+            Colors.lightBlue;
       case 'bug':
-        return Colors.lightGreen;
+        return (shade != null ? Colors.green[shade] : Colors.green[600]) ??
+            Colors.lightGreen;
       case 'normal':
-        return Colors.grey;
+        return (shade != null ? Colors.grey[shade] : Colors.grey[500]) ??
+            Colors.grey;
       case 'ground':
-        return Colors.brown;
+        return (shade != null ? Colors.brown[shade] : Colors.brown[400]) ??
+            Colors.brown;
       case 'fairy':
-        return Colors.pink;
+        return (shade != null ? Colors.pink[shade] : Colors.pink[300]) ??
+            Colors.pink;
       case 'fighting':
-        return Colors.orange;
+        return (shade != null ? Colors.orange[shade] : Colors.orange[800]) ??
+            Colors.orange;
       case 'psychic':
-        return Colors.purpleAccent;
+        return (shade != null
+                ? Colors.purpleAccent[shade]
+                : Colors.purpleAccent[700]) ??
+            Colors.purpleAccent;
       case 'rock':
-        return Colors.brown.shade700;
+        return (shade != null ? Colors.brown[shade] : Colors.brown[700]) ??
+            Colors.brown;
       case 'steel':
-        return Colors.blueGrey;
+        return (shade != null
+                ? Colors.blueGrey[shade]
+                : Colors.blueGrey[500]) ??
+            Colors.blueGrey;
       case 'ice':
-        return Colors.cyan;
+        return (shade != null ? Colors.cyan[shade] : Colors.cyan[300]) ??
+            Colors.cyan;
       case 'ghost':
-        return Colors.deepPurple;
+        return (shade != null
+                ? Colors.deepPurple[shade]
+                : Colors.deepPurple[400]) ??
+            Colors.deepPurple;
       case 'dragon':
-        return Colors.indigo;
+        return (shade != null ? Colors.indigo[shade] : Colors.indigo[700]) ??
+            Colors.indigo;
       default:
-        return Colors.grey;
+        return (shade != null ? Colors.grey[shade] : Colors.grey[400]) ??
+            Colors.grey;
     }
   }
 }

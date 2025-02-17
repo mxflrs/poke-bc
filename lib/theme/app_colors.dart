@@ -34,4 +34,7 @@ class AppColors {
   // Greens
   static const Color mintGreen = Color(0xFF65D498);
   static const Color forestGreen = Color(0xFF009444);
+
+  // Browns
+  static const Color brown = Colors.brown;
 }
