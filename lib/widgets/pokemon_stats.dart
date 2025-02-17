@@ -23,7 +23,7 @@ class PokemonStats extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 8),
           child: Text(
-            'Description: ${pokemon.description}',
+            pokemon.description,
             textAlign: TextAlign.justify,
             style: TextStyle(
               fontSize: 12,

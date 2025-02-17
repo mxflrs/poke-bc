@@ -34,9 +34,7 @@ class Pokemon {
       final home = other?['home'] as Map<String, dynamic>?;
 
       String imageUrl =
-          home?['front_default'] ??
-          sprites['front_default'] ??
-          '';
+          home?['front_default'] ?? sprites['front_default'] ?? '';
 
       final stats = json['stats'] as List;
       final hp = stats[0]['base_stat'] as int;
@@ -48,7 +46,7 @@ class Pokemon {
       final height = (json['height'] as int) / 10.0;
       final weight = (json['weight'] as int) / 10.0;
 
-      String description = 'No description available';
+      String description = 'Ninguna descripción fue encontrada';
 
       return Pokemon(
         id: json['id'] as int,

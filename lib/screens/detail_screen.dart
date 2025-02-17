@@ -101,20 +101,21 @@ class DetailScreen extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Image.asset('assets/images/ruler-icon.png', height: 24),
+                      Image.asset('assets/images/scale-icon.png', height: 24),
                       SizedBox(width: 8),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '${pokemon.height} m',
+                            '${pokemon.weight} kg',
                             style: GoogleFonts.montserrat(
                               fontSize: 14,
                               fontWeight: FontWeight.w700,
+                              color: AppColors.darkNavy,
                             ),
                           ),
                           Text(
-                            'Altura',
+                            'Peso',
                             style: GoogleFonts.montserrat(
                               fontSize: 10,
                               color: AppColors.brightBlue,
@@ -133,20 +134,21 @@ class DetailScreen extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Image.asset('assets/images/scale-icon.png', height: 24),
+                      Image.asset('assets/images/ruler-icon.png', height: 24),
                       SizedBox(width: 8),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '${pokemon.weight} kg',
+                            '${pokemon.height} m',
                             style: GoogleFonts.montserrat(
                               fontSize: 14,
                               fontWeight: FontWeight.w700,
+                              color: AppColors.darkNavy,
                             ),
                           ),
                           Text(
-                            'Peso',
+                            'Altura',
                             style: GoogleFonts.montserrat(
                               fontSize: 10,
                               color: AppColors.brightBlue,
